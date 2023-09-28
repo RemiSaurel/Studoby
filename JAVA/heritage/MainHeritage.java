@@ -1,4 +1,4 @@
-public class Main {
+public class MainHeritage {
     public static void main(String[] args) {
         Support soraka = new Support("Soraka", 100, 3);
         Personnage alistar = new Support("Alistar", 100, 2);
