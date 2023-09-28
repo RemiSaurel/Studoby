@@ -1,23 +1,23 @@
-public class Main {
+public class MainGraphe {
     public static void main(String[] args) {
         // Création des sommets
-        Sommet sommet1 = new Sommet(1);
-        Sommet sommet2 = new Sommet(2);
-        Sommet sommet3 = new Sommet(3);
-        Sommet sommet4 = new Sommet(4);
+        Sommet A = new Sommet("A");
+        Sommet B = new Sommet("B");
+        Sommet C = new Sommet("C");
+        Sommet D = new Sommet("D");
 
         // Création des arcs orientés
-        Arc arc1 = new Arc(sommet1, sommet2);
-        Arc arc2 = new Arc(sommet1, sommet3);
-        Arc arc3 = new Arc(sommet2, sommet4);
-        Arc arc4 = new Arc(sommet3, sommet4);
+        Arc arc1 = new Arc(A, B);
+        Arc arc2 = new Arc(A, C);
+        Arc arc3 = new Arc(B, D);
+        Arc arc4 = new Arc(C, D);
 
         // Création du graphe orienté
         GrapheOriente graphe = new GrapheOriente();
-        graphe.ajouterSommet(sommet1);
-        graphe.ajouterSommet(sommet2);
-        graphe.ajouterSommet(sommet3);
-        graphe.ajouterSommet(sommet4);
+        graphe.ajouterSommet(A);
+        graphe.ajouterSommet(B);
+        graphe.ajouterSommet(C);
+        graphe.ajouterSommet(D);
 
         // Ajout des arcs au graphe
         graphe.ajouterArc(arc1);
@@ -25,9 +25,9 @@ public class Main {
         graphe.ajouterArc(arc3);
         graphe.ajouterArc(arc4);
 
-        // Test du parcours DFS à partir du sommet 1
-        System.out.println("Parcours DFS à partir du sommet 1 : ");
-        graphe.parcoursDFS(sommet1);
+        // Test du parcours DFS à partir du sommet A
+        System.out.println("Parcours DFS à partir du sommet A : ");
+        graphe.parcoursDFS(A);
 
     }
 }
