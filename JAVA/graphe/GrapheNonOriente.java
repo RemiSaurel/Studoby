@@ -5,14 +5,8 @@ public class GrapheNonOriente extends Graphe {
     }
 
     @Override
-    public void ajouterArc(Sommet depart, Sommet arrivee) {
-        Arc arc = new Arc(depart, arrivee);
-        depart.ajouterArcSortant(arc);
-    }
-
-    @Override
-    public void ajouterArc(Sommet depart, Sommet arrivee, int poids) {
-        Arc arc = new Arc(depart, arrivee, poids);
-        depart.ajouterArcSortant(arc);
+    public void ajouterArc(Arc a) {
+        System.out.println("Ajout de l'arc " + a);
+        a.depart.ajouterArcSortant(a);
     }
 }

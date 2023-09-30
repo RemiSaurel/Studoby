@@ -33,8 +33,8 @@ public class MainGraphe {
 
         // Ajout des arcs aux graphes
         for (Arc arc : arcs) {
-            gno.ajouterArc(arc.depart, arc.arrivee, arc.poids);
-            go.ajouterArc(arc.depart, arc.arrivee, arc.poids);
+            gno.ajouterArc(arc);
+            go.ajouterArc(arc);
         }
 
         // Affichage des sommets

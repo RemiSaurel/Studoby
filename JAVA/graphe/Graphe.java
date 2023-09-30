@@ -15,8 +15,6 @@ public abstract class Graphe {
         sommets.add(sommet);
     }
 
-    public abstract void ajouterArc(Sommet depart, Sommet arrivee);
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -27,8 +25,18 @@ public abstract class Graphe {
                     sb.append(arc.arrivee).append(" ");
                 }
             } else {
+                List<Sommet> visite = new ArrayList<>();
+                for (Arc arc : sommet.arcsSortants) {
+                    if (!visite.contains(arc.arrivee)) {
+                        sb.append(arc.arrivee).append(" ");
+                        visite.add(arc.arrivee);
+                    }
+                }
                 for (Arc arc : sommet.arcsEntrants) {
-                    sb.append(arc.depart).append(" ");
+                    if (!visite.contains(arc.depart)) {
+                        sb.append(arc.depart).append(" ");
+                        visite.add(arc.depart);
+                    }
                 }
             }
             sb.append("\n");
@@ -36,5 +44,5 @@ public abstract class Graphe {
         return sb.toString();
     }
 
-    public abstract void ajouterArc(Sommet depart, Sommet arrivee, int poids);
+    public abstract void ajouterArc(Arc a);
 }
