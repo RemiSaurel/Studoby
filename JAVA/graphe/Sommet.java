@@ -1,14 +1,15 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Sommet {
-
     String nom;
-    List<Arc> arcsSortants;
+    Set<Arc> arcsSortants;
+    Set<Arc> arcsEntrants;
 
     public Sommet(String nom) {
         this.nom = nom;
-        this.arcsSortants = new ArrayList<>();
+        this.arcsSortants = new HashSet<>();
+        this.arcsEntrants = new HashSet<>();
     }
 
     public void ajouterArcSortant(Arc arc) {
@@ -17,7 +18,10 @@ public class Sommet {
 
     @Override
     public String toString() {
-        return String.valueOf(this.nom);
+        return this.nom;
     }
 
+    public void ajouterArcEntrant(Arc arc) {
+        this.arcsEntrants.add(arc);
+    }
 }
