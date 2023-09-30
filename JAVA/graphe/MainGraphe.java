@@ -1,33 +1,57 @@
+import java.util.List;
+
 public class MainGraphe {
     public static void main(String[] args) {
-        // Création des sommets
+        // Création de graphes non orientés et orientés
+        GrapheNonOriente gno = new GrapheNonOriente();
+        GrapheOriente go = new GrapheOriente();
+
+        List<Graphe> graphes = List.of(gno, go); // OK, POLYMORPHISME
+
+        // Création de sommets
         Sommet A = new Sommet("A");
         Sommet B = new Sommet("B");
         Sommet C = new Sommet("C");
         Sommet D = new Sommet("D");
 
-        // Création des arcs orientés
-        Arc arc1 = new Arc(A, B);
-        Arc arc2 = new Arc(A, C);
-        Arc arc3 = new Arc(B, D);
-        Arc arc4 = new Arc(C, D);
+        List<Sommet> sommets = List.of(A, B, C, D);
 
-        // Création du graphe orienté
-        GrapheOriente graphe = new GrapheOriente();
-        graphe.ajouterSommet(A);
-        graphe.ajouterSommet(B);
-        graphe.ajouterSommet(C);
-        graphe.ajouterSommet(D);
+        // Ajout des sommets aux graphes
+        for (Sommet sommet : sommets) {
+            gno.ajouterSommet(sommet);
+            go.ajouterSommet(sommet);
+        }
 
-        // Ajout des arcs au graphe
-        graphe.ajouterArc(arc1);
-        graphe.ajouterArc(arc2);
-        graphe.ajouterArc(arc3);
-        graphe.ajouterArc(arc4);
+        // Création d'arcs avec poids
+        Arc BA = new Arc(B, A, 2);
+        Arc CA = new Arc(C, A, 3);
+        Arc BC = new Arc(B, C, 2);
+        Arc CB = new Arc(C, B, 1);
+        Arc CD = new Arc(C, D,3);
 
-        // Test du parcours DFS à partir du sommet A
-        System.out.println("Parcours DFS à partir du sommet A : ");
-        graphe.parcoursDFS(A);
+        List<Arc> arcs = List.of(BA, CA, BC, CB, CD);
 
+        // Ajout des arcs aux graphes
+        for (Arc arc : arcs) {
+            gno.ajouterArc(arc.depart, arc.arrivee, arc.poids);
+            go.ajouterArc(arc.depart, arc.arrivee, arc.poids);
+        }
+
+        // Affichage des sommets
+        System.out.println("==========================");
+        for (Sommet sommet : sommets) {
+            System.out.println("Sommet " + sommet + " :");
+            System.out.println("Arcs sortants : " + sommet.arcsSortants);
+            System.out.println("Arcs entrants : " + sommet.arcsEntrants);
+            System.out.println("-------");
+        }
+
+        // Affichage des graphes
+        System.out.println("==========================");
+        System.out.println("Graphe non orienté :");
+        System.out.println(gno);
+        System.out.println("==========================");
+        System.out.println("Graphe orienté :");
+        System.out.println(go);
     }
 }
