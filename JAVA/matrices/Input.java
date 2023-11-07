@@ -18,8 +18,8 @@ public class Input {
             }
 
             return input;
-        } catch (NotValidCoordinatesException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("The coordinates must be between 0 and 2!");
             return readInt(message);
         }
     }
