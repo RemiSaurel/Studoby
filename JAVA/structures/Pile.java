@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pile {
+public class Pile implements MaPile {
 
-    private List<Integer> pile;
+    private final List<Integer> pile; // final because we don't want to change the reference, the values inside the list can be changed
 
     public Pile(int size) {
         this.pile = new ArrayList<>(size);
@@ -17,6 +17,22 @@ public class Pile {
         int value = this.pile.get(this.pile.size() - 1);
         this.pile.remove(this.pile.size() - 1);
         return value;
+    }
+
+    public int peek() {
+        return this.pile.get(this.pile.size() - 1);
+    }
+
+    public boolean isEmpty() {
+        return this.pile.isEmpty();
+    }
+
+    public int size() {
+        return this.pile.size();
+    }
+
+    public void clear() {
+        this.pile.clear();
     }
 
     @Override
