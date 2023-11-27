@@ -1,3 +1,8 @@
 *.idea
 *.class
 
+# IntelliJ project files
+*.iml
+
+# Mac OS X
+*.DS_Store
