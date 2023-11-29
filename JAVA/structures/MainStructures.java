@@ -5,6 +5,9 @@ public class MainStructures {
         initLinkedList();
     }
 
+    /**
+     * Test de la pile
+     */
     public static void initPile() {
         MaPile pile = new Pile(10);
         pile.push(1);
@@ -23,6 +26,9 @@ public class MainStructures {
         System.out.println(pile.size());
     }
 
+    /**
+     * Test de la liste chaînée
+     */
     public static void initLinkedList() {
         LinkedList list = new LinkedList();
         list.add(1);
